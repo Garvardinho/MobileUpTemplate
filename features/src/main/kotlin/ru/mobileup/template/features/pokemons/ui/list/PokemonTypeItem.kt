@@ -10,7 +10,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import ru.mobileup.template.core.theme.AppTheme
+import ru.mobileup.template.core.theme.pokemons_theme.AppTheme
 import ru.mobileup.template.features.pokemons.domain.PokemonType
 
 @OptIn(ExperimentalMaterialApi::class)

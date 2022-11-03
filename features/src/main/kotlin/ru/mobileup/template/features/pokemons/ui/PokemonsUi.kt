@@ -4,7 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.arkivanov.decompose.extensions.compose.jetpack.stack.Children
-import ru.mobileup.template.core.theme.AppTheme
+import ru.mobileup.template.core.theme.pokemons_theme.AppTheme
 import ru.mobileup.template.core.utils.createFakeChildStack
 import ru.mobileup.template.features.pokemons.ui.details.PokemonDetailsUi
 import ru.mobileup.template.features.pokemons.ui.list.FakePokemonListComponent

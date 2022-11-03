@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="coin_home_bar_title">Список криптовалют</string>
+    <string name="usd">usd</string>
+    <string name="eur">eur</string>
+    <string name="coins_not_found">Coins are not found</string>
+    <string name="description_title">Описание</string>
+    <string name="categories_title">Категории</string>
+</resources>

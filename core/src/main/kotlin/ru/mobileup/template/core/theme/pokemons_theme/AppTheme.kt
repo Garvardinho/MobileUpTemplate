@@ -1,4 +1,4 @@
-package ru.mobileup.template.core.theme
+package ru.mobileup.template.core.theme.pokemons_theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme

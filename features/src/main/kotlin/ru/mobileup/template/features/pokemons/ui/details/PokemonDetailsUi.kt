@@ -21,7 +21,7 @@ import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import me.aartikov.replica.single.Loadable
-import ru.mobileup.template.core.theme.AppTheme
+import ru.mobileup.template.core.theme.pokemons_theme.AppTheme
 import ru.mobileup.template.core.widget.RefreshingProgress
 import ru.mobileup.template.core.widget.SwipeRefreshLceWidget
 import ru.mobileup.template.features.R

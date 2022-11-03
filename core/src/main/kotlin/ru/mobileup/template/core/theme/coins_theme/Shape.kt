@@ -1,4 +1,4 @@
-package ru.mobileup.template.core.theme
+package ru.mobileup.template.core.theme.coins_theme
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Shapes

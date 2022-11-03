@@ -15,7 +15,7 @@ import androidx.compose.ui.window.Popup
 import androidx.compose.ui.window.PopupProperties
 import me.aartikov.sesame.localizedstring.LocalizedString
 import ru.mobileup.template.core.message.domain.Message
-import ru.mobileup.template.core.theme.AppTheme
+import ru.mobileup.template.core.theme.pokemons_theme.AppTheme
 import ru.mobileup.template.core.utils.resolve
 
 /**
