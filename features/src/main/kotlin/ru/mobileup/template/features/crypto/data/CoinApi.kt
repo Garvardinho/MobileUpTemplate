@@ -8,12 +8,12 @@ import ru.mobileup.template.features.crypto.data.dto.DetailedCoinResponse
 
 interface CoinApi {
 
-    @GET("https://api.coingecko.com/api/v3/coins/markets")
+    @GET("markets")
     suspend fun getCoinsByCurrency(
         @Query("vs_currency") currency: String
     ): List<CoinResponse>
 
-    @GET("https://api.coingecko.com/api/v3/coins/{coinId}")
+    @GET("{coinId}")
     suspend fun getCoinDetails(
         @Path("coinId") coinId: String
     ): DetailedCoinResponse
