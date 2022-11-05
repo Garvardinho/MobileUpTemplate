@@ -10,13 +10,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import ru.mobileup.template.features.crypto.domain.Coin
 import ru.mobileup.template.features.crypto.domain.CoinId
-import ru.mobileup.template.features.crypto.domain.Currency
+import ru.mobileup.template.features.crypto.domain.CoinCurrency
 
 @Composable
 fun CoinList(
     coins: List<Coin>,
     onCoinClick: (CoinId) -> Unit,
-    currency: Currency,
+    currency: CoinCurrency,
     modifier: Modifier = Modifier
 ) {
     LazyColumn(

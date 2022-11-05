@@ -17,12 +17,14 @@ import coil.request.ImageRequest
 import ru.mobileup.template.core.theme.coins_theme.CoinTheme
 import ru.mobileup.template.features.R
 import ru.mobileup.template.features.crypto.domain.Coin
-import ru.mobileup.template.features.crypto.domain.Currency
+import ru.mobileup.template.features.crypto.domain.CoinCurrency
+import java.text.NumberFormat
+import java.util.*
 
 @Composable
 fun CoinItem(
     coin: Coin,
-    currency: Currency,
+    currency: CoinCurrency,
     onClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
@@ -62,13 +64,15 @@ fun CoinItem(
                 color = CoinTheme.colors.coin.coinSymbol
             )
         }
+        val formatter = NumberFormat.getCurrencyInstance()
+        formatter.maximumFractionDigits = 2
+
+        if (currency.value == "eur")
+            formatter.currency = Currency.getInstance("EUR")
 
         Column(horizontalAlignment = Alignment.End) {
             Text(
-                text = if (currency.value == "usd")
-                    "$" + coin.currentPrice.toString()
-                else
-                    "€" + coin.currentPrice.toString(),
+                text = formatter.format(coin.currentPrice),
                 style = CoinTheme.typography.coin.semiBold,
                 color = CoinTheme.colors.text.title
             )

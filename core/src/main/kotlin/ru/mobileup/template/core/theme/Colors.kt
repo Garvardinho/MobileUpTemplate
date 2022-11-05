@@ -7,7 +7,9 @@ import androidx.compose.ui.graphics.Color
 data class CustomColors(
     val isLight: Boolean,
     val primary: Color,
-    val shadow: Color,
+    val surface: Color,
+    val arrowColor: Color,
+    val secondary: Color,
     val coin: CoinColors,
     val chip: ChipColors,
     val text: TextColors
@@ -36,8 +38,10 @@ val LocalCustomColors = staticCompositionLocalOf<CustomColors?> { null }
 
 val LightAppColors = CustomColors(
     isLight = true,
-    primary = Color(0xFFFFFFFF),
-    shadow = Color(0xFFC2C2C2),
+    primary = Color(0xFF000000),
+    surface = Color(0xFFFFFFFF),
+    arrowColor = Color(0xFF757575),
+    secondary = Color(0xFFFF9F00),
 
     coin = CoinColors(
         coinName = Color(0xFF525252),
@@ -62,11 +66,11 @@ val LightAppColors = CustomColors(
 fun CustomColors.toMaterialColors(): Colors {
     return Colors(
         primary = primary,
-        primaryVariant = coin.coinName,
+        primaryVariant = secondary,
         secondary = coin.coinSymbol,
         secondaryVariant = chip.chipSelected,
         background = chip.chipUnselected,
-        surface = primary,
+        surface = surface,
         error = text.percentBelowZero,
         isLight = isLight,
         onPrimary = primary,

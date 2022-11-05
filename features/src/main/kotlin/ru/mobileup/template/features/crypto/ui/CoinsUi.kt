@@ -5,7 +5,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.arkivanov.decompose.ExperimentalDecomposeApi
 import com.arkivanov.decompose.extensions.compose.jetpack.stack.Children
-import ru.mobileup.template.core.theme.coins_theme.CoinTheme
+import ru.mobileup.template.core.theme.coins_theme.AppTheme
 import ru.mobileup.template.core.utils.createFakeChildStack
 import ru.mobileup.template.features.crypto.ui.coins_list.CoinsListUi
 import ru.mobileup.template.features.crypto.ui.coins_list.FakeCoinsListComponent
@@ -31,7 +31,7 @@ fun CoinsUi(
 @Preview(showSystemUi = true)
 @Composable
 fun CoinsUiPreview() {
-    CoinTheme {
+    AppTheme {
         CoinsUi(FakeCoinsComponent())
     }
 }

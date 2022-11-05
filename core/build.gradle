@@ -49,6 +49,7 @@ dependencies {
     implementation libs.activity.compose
     implementation libs.compose.tooling
     implementation libs.bundles.accompanist
+    debugImplementation "androidx.customview:customview-poolingcontainer:1.0.0-rc01"
 
     // DI
     implementation libs.koin

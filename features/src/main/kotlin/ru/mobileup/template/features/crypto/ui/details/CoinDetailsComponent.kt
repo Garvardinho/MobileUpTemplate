@@ -10,4 +10,10 @@ interface CoinDetailsComponent {
     fun onRetryClick()
 
     fun onRefresh()
+
+    fun onBackPressed()
+
+    sealed interface Output {
+        object BackPressed : Output
+    }
 }

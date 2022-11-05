@@ -5,7 +5,7 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.ReadOnlyComposable
 
 @Composable
-fun CoinTheme(
+fun AppTheme(
     colors: CustomColors,
     typography: CustomTypography,
     content: @Composable () -> Unit

@@ -11,11 +11,10 @@ import com.arkivanov.decompose.extensions.compose.jetpack.stack.Children
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import ru.mobileup.template.core.message.ui.FakeMessageComponent
 import ru.mobileup.template.core.message.ui.MessageUi
-import ru.mobileup.template.core.theme.pokemons_theme.AppTheme
+import ru.mobileup.template.core.theme.coins_theme.AppTheme
 import ru.mobileup.template.core.utils.createFakeChildStack
 import ru.mobileup.template.features.crypto.ui.CoinsUi
 import ru.mobileup.template.features.crypto.ui.FakeCoinsComponent
-import ru.mobileup.template.features.pokemons.ui.PokemonsUi
 
 @OptIn(ExperimentalDecomposeApi::class)
 @Composable
@@ -27,7 +26,6 @@ fun RootUi(
 
     Children(component.childStack, modifier) { child ->
         when (val instance = child.instance) {
-            is RootComponent.Child.Pokemons -> PokemonsUi(instance.component)
             is RootComponent.Child.Coins -> CoinsUi(instance.component)
         }
     }

@@ -6,6 +6,7 @@ import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import ru.mobileup.template.core.theme.coins_theme.CoinTheme
 
 @Composable
 fun FullscreenCircularProgress(modifier: Modifier = Modifier) {
@@ -13,6 +14,6 @@ fun FullscreenCircularProgress(modifier: Modifier = Modifier) {
         modifier = modifier.fillMaxSize(),
         contentAlignment = Alignment.Center
     ) {
-        CircularProgressIndicator()
+        CircularProgressIndicator(color = CoinTheme.colors.secondary)
     }
 }

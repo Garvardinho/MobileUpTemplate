@@ -10,18 +10,18 @@ import ru.mobileup.template.core.error_handling.ErrorHandler
 import ru.mobileup.template.core.utils.observe
 import ru.mobileup.template.features.crypto.domain.Coin
 import ru.mobileup.template.features.crypto.domain.CoinId
-import ru.mobileup.template.features.crypto.domain.Currency
+import ru.mobileup.template.features.crypto.domain.CoinCurrency
 
 class RealCoinsListComponent(
     componentContext: ComponentContext,
     private val onOutput: (CoinsListComponent.Output) -> Unit,
-    private val coinByCurrencyReplica: KeyedReplica<Currency, List<Coin>>,
+    private val coinByCurrencyReplica: KeyedReplica<CoinCurrency, List<Coin>>,
     errorHandler: ErrorHandler
 ) : ComponentContext by componentContext, CoinsListComponent {
 
     override val currencies = listOf(
-        Currency("usd"),
-        Currency("eur")
+        CoinCurrency("usd"),
+        CoinCurrency("eur")
     )
     override var selectedCurrency by mutableStateOf(currencies[0])
         private set
@@ -34,7 +34,7 @@ class RealCoinsListComponent(
             key = { selectedCurrency }
         )
 
-    override fun onCurrencyClick(currency: Currency) {
+    override fun onCurrencyClick(currency: CoinCurrency) {
         selectedCurrency = currency
     }
 

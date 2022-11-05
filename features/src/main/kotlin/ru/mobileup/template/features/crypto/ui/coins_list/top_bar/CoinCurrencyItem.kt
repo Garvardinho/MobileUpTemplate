@@ -9,12 +9,13 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import ru.mobileup.template.core.theme.coins_theme.CoinTheme
-import ru.mobileup.template.features.crypto.domain.Currency
+import ru.mobileup.template.core.theme.coins_theme.AppTheme
+import ru.mobileup.template.features.crypto.domain.CoinCurrency
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun CoinCurrencyItem(
-    currency: Currency,
+    currency: CoinCurrency,
     modifier: Modifier = Modifier,
     isSelected: Boolean = false,
     onClick: (() -> Unit)? = null
@@ -52,9 +53,9 @@ fun CoinCurrencyItem(
 fun CoinCurrencyItemPreview() {
     var isSelected by remember { mutableStateOf(false) }
 
-    CoinTheme {
+    AppTheme {
         CoinCurrencyItem(
-            currency = Currency("usd"),
+            currency = CoinCurrency("usd"),
             isSelected = isSelected,
             onClick = { isSelected = !isSelected }
         )

@@ -12,7 +12,6 @@ import ru.mobileup.template.core.ComponentFactory
 import ru.mobileup.template.core.createMessageComponent
 import ru.mobileup.template.core.utils.toComposeState
 import ru.mobileup.template.features.crypto.createCoinsComponent
-import ru.mobileup.template.features.pokemons.createPokemonsComponent
 
 class RealRootComponent(
     componentContext: ComponentContext,
@@ -36,11 +35,6 @@ class RealRootComponent(
         config: ChildConfig,
         componentContext: ComponentContext
     ): RootComponent.Child = when (config) {
-        is ChildConfig.Pokemons -> {
-            RootComponent.Child.Pokemons(
-                componentFactory.createPokemonsComponent(componentContext)
-            )
-        }
 
         is ChildConfig.Coins -> {
             RootComponent.Child.Coins(
@@ -50,9 +44,6 @@ class RealRootComponent(
     }
 
     private sealed interface ChildConfig : Parcelable {
-
-        @Parcelize
-        object Pokemons : ChildConfig
 
         @Parcelize
         object Coins : ChildConfig

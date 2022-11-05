@@ -5,7 +5,7 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 @JvmInline
-value class Currency(val value: String) : Parcelable
+value class CoinCurrency(val value: String) : Parcelable
 
 @Parcelize
 @JvmInline

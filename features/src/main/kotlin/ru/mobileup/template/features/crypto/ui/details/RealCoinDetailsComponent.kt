@@ -9,6 +9,7 @@ import ru.mobileup.template.features.crypto.domain.DetailedCoin
 
 class RealCoinDetailsComponent(
     componentContext: ComponentContext,
+    private val onOutput: (CoinDetailsComponent.Output) -> Unit,
     private val coinReplica: Replica<DetailedCoin>,
     errorHandler: ErrorHandler
 ) : ComponentContext by componentContext, CoinDetailsComponent {
@@ -22,4 +23,9 @@ class RealCoinDetailsComponent(
     override fun onRefresh() {
         coinReplica.refresh()
     }
+
+    override fun onBackPressed() {
+        onOutput(CoinDetailsComponent.Output.BackPressed)
+    }
+
 }

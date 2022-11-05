@@ -6,7 +6,7 @@ import me.aartikov.replica.single.ReplicaSettings
 import ru.mobileup.template.features.crypto.data.dto.toDomain
 import ru.mobileup.template.features.crypto.domain.Coin
 import ru.mobileup.template.features.crypto.domain.CoinId
-import ru.mobileup.template.features.crypto.domain.Currency
+import ru.mobileup.template.features.crypto.domain.CoinCurrency
 import ru.mobileup.template.features.crypto.domain.DetailedCoin
 import kotlin.time.Duration.Companion.minutes
 
@@ -15,7 +15,7 @@ class CoinRepositoryImpl(
     api: CoinApi
 ) : CoinRepository {
 
-    override val coinsByCurrencyReplica: KeyedPhysicalReplica<Currency, List<Coin>> =
+    override val coinsByCurrencyReplica: KeyedPhysicalReplica<CoinCurrency, List<Coin>> =
         replicaClient.createKeyedReplica(
             name = "coinsList",
             childName = { currency -> "currency = ${currency.value}" },

@@ -41,7 +41,7 @@ android {
 dependencies {
     // Modules
     implementation project(':core')
-
+    debugImplementation "androidx.customview:customview-poolingcontainer:1.0.0-rc01"
     // Kotlin
     implementation libs.kotlin.datetime
     implementation libs.coroutines.core

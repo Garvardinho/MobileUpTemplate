@@ -38,8 +38,9 @@ fun ComponentFactory.createCoinListComponent(
 
 fun ComponentFactory.createCoinDetailsComponent(
     componentContext: ComponentContext,
+    onOutput: (CoinDetailsComponent.Output) -> Unit,
     coinId: CoinId
 ): CoinDetailsComponent {
     val coinDetailsByIdReplica = get<CoinRepository>().coinDetailsByIdReplica.withKey(coinId)
-    return RealCoinDetailsComponent(componentContext, coinDetailsByIdReplica, get())
+    return RealCoinDetailsComponent(componentContext, onOutput, coinDetailsByIdReplica, get())
 }

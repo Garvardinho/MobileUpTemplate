@@ -8,14 +8,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import me.aartikov.replica.single.Loadable
-import ru.mobileup.template.core.theme.coins_theme.CoinTheme
+import ru.mobileup.template.core.theme.coins_theme.AppTheme
 import ru.mobileup.template.core.widget.EmptyPlaceholder
 import ru.mobileup.template.core.widget.RefreshingProgress
 import ru.mobileup.template.core.widget.SwipeRefreshLceWidget
 import ru.mobileup.template.features.R
 import ru.mobileup.template.features.crypto.domain.Coin
 import ru.mobileup.template.features.crypto.domain.CoinId
-import ru.mobileup.template.features.crypto.domain.Currency
+import ru.mobileup.template.features.crypto.domain.CoinCurrency
 import ru.mobileup.template.features.crypto.ui.coins_list.list.CoinList
 import ru.mobileup.template.features.crypto.ui.coins_list.top_bar.CoinCurrencyBar
 
@@ -25,7 +25,6 @@ fun CoinsListUi(
     modifier: Modifier = Modifier
 ) {
     Surface(
-        color = CoinTheme.colors.primary,
         modifier = modifier.fillMaxSize()
     ) {
         Column(modifier = Modifier.fillMaxSize()) {
@@ -57,19 +56,19 @@ fun CoinsListUi(
 @Preview
 @Composable
 fun CoinsListUiPreview() {
-    CoinTheme {
+    AppTheme {
         CoinsListUi(FakeCoinsListComponent())
     }
 }
 
 class FakeCoinsListComponent : CoinsListComponent {
 
-    override val currencies: List<Currency> = listOf(
-        Currency("usd"),
-        Currency("eur")
+    override val currencies: List<CoinCurrency> = listOf(
+        CoinCurrency("usd"),
+        CoinCurrency("eur")
     )
 
-    override val selectedCurrency: Currency = currencies[0]
+    override val selectedCurrency: CoinCurrency = currencies[0]
 
     override val coinsState: Loadable<List<Coin>> = Loadable(
         loading = true,
@@ -117,7 +116,7 @@ class FakeCoinsListComponent : CoinsListComponent {
         )
     )
 
-    override fun onCurrencyClick(currency: Currency) = Unit
+    override fun onCurrencyClick(currency: CoinCurrency) = Unit
 
     override fun onCoinClick(coinId: CoinId) = Unit
 

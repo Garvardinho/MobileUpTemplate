@@ -5,14 +5,14 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 
 @Composable
-fun CoinTheme(
+fun AppTheme(
     isDarkTheme: Boolean = isSystemInDarkTheme(),
     content: @Composable () -> Unit
 ) {
     val colors = if (isDarkTheme) LightAppColors else LightAppColors
     val typography = AppTypography
     
-    CoinTheme(colors, typography) {
+    AppTheme(colors, typography) {
         MaterialTheme(
             colors = colors.toMaterialColors(),
             typography = typography.toMaterialTypography(),

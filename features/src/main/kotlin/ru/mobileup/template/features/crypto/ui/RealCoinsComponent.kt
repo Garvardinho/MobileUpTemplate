@@ -3,10 +3,7 @@ package ru.mobileup.template.features.crypto.ui
 import android.os.Parcelable
 import androidx.compose.runtime.getValue
 import com.arkivanov.decompose.ComponentContext
-import com.arkivanov.decompose.router.stack.ChildStack
-import com.arkivanov.decompose.router.stack.StackNavigation
-import com.arkivanov.decompose.router.stack.childStack
-import com.arkivanov.decompose.router.stack.push
+import com.arkivanov.decompose.router.stack.*
 import kotlinx.parcelize.Parcelize
 import ru.mobileup.template.core.ComponentFactory
 import ru.mobileup.template.core.utils.toComposeState
@@ -14,6 +11,7 @@ import ru.mobileup.template.features.crypto.createCoinDetailsComponent
 import ru.mobileup.template.features.crypto.createCoinListComponent
 import ru.mobileup.template.features.crypto.domain.CoinId
 import ru.mobileup.template.features.crypto.ui.coins_list.CoinsListComponent
+import ru.mobileup.template.features.crypto.ui.details.CoinDetailsComponent
 
 class RealCoinsComponent(
     componentContext: ComponentContext,
@@ -46,6 +44,7 @@ class RealCoinsComponent(
             CoinsComponent.Child.Details(
                 componentFactory.createCoinDetailsComponent(
                     componentContext,
+                    ::onDetailsBack,
                     coinId = config.coinId
                 )
             )
@@ -56,6 +55,14 @@ class RealCoinsComponent(
         when (output) {
             is CoinsListComponent.Output.CoinDetailsRequested -> {
                 navigation.push(ChildConfig.Details(output.coinId))
+            }
+        }
+    }
+
+    private fun onDetailsBack(output: CoinDetailsComponent.Output) {
+        when (output) {
+            is CoinDetailsComponent.Output.BackPressed -> {
+                navigation.pop()
             }
         }
     }

@@ -16,7 +16,7 @@ class DetailedCoinResponse(
 
 @Serializable
 class ImageUrl(
-    @SerialName("small") val url: String
+    @SerialName("large") val url: String
 )
 
 @Serializable
