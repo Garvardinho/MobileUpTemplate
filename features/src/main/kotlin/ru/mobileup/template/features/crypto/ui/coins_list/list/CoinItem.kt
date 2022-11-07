@@ -16,10 +16,10 @@ import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import ru.mobileup.template.core.theme.coins_theme.CoinTheme
 import ru.mobileup.template.features.R
+import ru.mobileup.template.features.crypto.data.dto.getFormattedCurrency
+import ru.mobileup.template.features.crypto.data.dto.getFormattedPercentage
 import ru.mobileup.template.features.crypto.domain.Coin
 import ru.mobileup.template.features.crypto.domain.CoinCurrency
-import java.text.NumberFormat
-import java.util.*
 
 @Composable
 fun CoinItem(
@@ -64,25 +64,15 @@ fun CoinItem(
                 color = CoinTheme.colors.coin.coinSymbol
             )
         }
-        val currencyFormatter = NumberFormat.getCurrencyInstance()
-        currencyFormatter.maximumFractionDigits = 2
-
-        if (currency.value == "eur")
-            currencyFormatter.currency = Currency.getInstance("EUR")
-        else
-            currencyFormatter.currency = Currency.getInstance("USD")
-
-        val percentFormatter = NumberFormat.getPercentInstance()
-        percentFormatter.maximumFractionDigits = 2
 
         Column(horizontalAlignment = Alignment.End) {
             Text(
-                text = currencyFormatter.format(coin.currentPrice),
+                text = getFormattedCurrency(currency, coin.currentPrice),
                 style = CoinTheme.typography.coin.semiBold,
                 color = CoinTheme.colors.text.title
             )
             Text(
-                text = percentFormatter.format(coin.priceChangePercentage.toDouble()),
+                text = getFormattedPercentage(coin.priceChangePercentage),
                 style = CoinTheme.typography.coin.normal,
                 color = if (coin.priceChangePercentage.toDouble() < 0)
                     CoinTheme.colors.text.percentBelowZero

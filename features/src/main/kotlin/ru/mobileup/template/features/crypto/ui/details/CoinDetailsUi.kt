@@ -22,14 +22,13 @@ import androidx.core.text.toSpanned
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import me.aartikov.replica.single.Loadable
-import ru.mobileup.template.core.theme.coins_theme.CoinTheme
 import ru.mobileup.template.core.theme.AppTheme
+import ru.mobileup.template.core.theme.coins_theme.CoinTheme
 import ru.mobileup.template.core.widget.RefreshingProgress
 import ru.mobileup.template.core.widget.SwipeRefreshLceWidget
 import ru.mobileup.template.features.R
 import ru.mobileup.template.features.crypto.domain.CoinId
 import ru.mobileup.template.features.crypto.domain.DetailedCoin
-import timber.log.Timber
 
 @Composable
 fun CoinDetailsUi(
@@ -125,8 +124,6 @@ fun CoinDetailsUiContent(
                 .padding(bottom = 34.dp)
                 .padding(horizontal = 16.dp)
         )
-        Timber.tag("mthfc")
-            .d(t)
     }
 }
 

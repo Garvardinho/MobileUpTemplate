@@ -8,10 +8,9 @@ import me.aartikov.replica.keyed.KeyedReplica
 import me.aartikov.replica.keyed.keepPreviousData
 import ru.mobileup.template.core.error_handling.ErrorHandler
 import ru.mobileup.template.core.utils.observe
-import ru.mobileup.template.core.utils.persistent
 import ru.mobileup.template.features.crypto.domain.Coin
-import ru.mobileup.template.features.crypto.domain.CoinId
 import ru.mobileup.template.features.crypto.domain.CoinCurrency
+import ru.mobileup.template.features.crypto.domain.CoinId
 
 class RealCoinsListComponent(
     componentContext: ComponentContext,
