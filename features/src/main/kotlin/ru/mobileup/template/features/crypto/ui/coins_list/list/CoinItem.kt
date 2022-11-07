@@ -45,7 +45,7 @@ fun CoinItem(
                 .size(40.dp)
                 .clip(CircleShape)
                 .align(Alignment.CenterVertically),
-            placeholder = painterResource(id = R.mipmap.ic_bitcoin_foreground)
+            placeholder = painterResource(R.mipmap.ic_placeholder_round)
         )
 
         Column(
@@ -64,23 +64,25 @@ fun CoinItem(
                 color = CoinTheme.colors.coin.coinSymbol
             )
         }
-        val formatter = NumberFormat.getCurrencyInstance()
-        formatter.maximumFractionDigits = 2
+        val currencyFormatter = NumberFormat.getCurrencyInstance()
+        currencyFormatter.maximumFractionDigits = 2
 
         if (currency.value == "eur")
-            formatter.currency = Currency.getInstance("EUR")
+            currencyFormatter.currency = Currency.getInstance("EUR")
+        else
+            currencyFormatter.currency = Currency.getInstance("USD")
+
+        val percentFormatter = NumberFormat.getPercentInstance()
+        percentFormatter.maximumFractionDigits = 2
 
         Column(horizontalAlignment = Alignment.End) {
             Text(
-                text = formatter.format(coin.currentPrice),
+                text = currencyFormatter.format(coin.currentPrice),
                 style = CoinTheme.typography.coin.semiBold,
                 color = CoinTheme.colors.text.title
             )
             Text(
-                text = if (coin.priceChangePercentage.toDouble() < 0)
-                    coin.priceChangePercentage + "%"
-                else
-                    "+" + coin.priceChangePercentage + "%",
+                text = percentFormatter.format(coin.priceChangePercentage.toDouble()),
                 style = CoinTheme.typography.coin.normal,
                 color = if (coin.priceChangePercentage.toDouble() < 0)
                     CoinTheme.colors.text.percentBelowZero

@@ -23,7 +23,7 @@ import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import me.aartikov.replica.single.Loadable
 import ru.mobileup.template.core.theme.coins_theme.CoinTheme
-import ru.mobileup.template.core.theme.coins_theme.AppTheme
+import ru.mobileup.template.core.theme.AppTheme
 import ru.mobileup.template.core.widget.RefreshingProgress
 import ru.mobileup.template.core.widget.SwipeRefreshLceWidget
 import ru.mobileup.template.features.R
@@ -39,13 +39,19 @@ fun CoinDetailsUi(
     Surface(
         modifier = modifier.fillMaxSize()
     ) {
-        SwipeRefreshLceWidget(
-            state = component.coinState,
-            onRefresh = component::onRefresh,
-            onRetryClick = component::onRetryClick
-        ) { coin, refreshing ->
-            CoinDetailsUiContent(coin, component)
-            RefreshingProgress(refreshing, modifier = Modifier.padding(top = 4.dp))
+        Column(modifier = Modifier.fillMaxSize()) {
+            DetailsBarUi(
+                coinName = component.coinState.data?.name.orEmpty(),
+                onBackButtonPressed = component::onBackPressed
+            )
+            SwipeRefreshLceWidget(
+                state = component.coinState,
+                onRefresh = component::onRefresh,
+                onRetryClick = component::onRetryClick
+            ) { coin, refreshing ->
+                CoinDetailsUiContent(coin)
+                RefreshingProgress(refreshing, modifier = Modifier.padding(top = 4.dp))
+            }
         }
     }
 }
@@ -53,20 +59,16 @@ fun CoinDetailsUi(
 @Composable
 fun CoinDetailsUiContent(
     coin: DetailedCoin,
-    component: CoinDetailsComponent,
     modifier: Modifier = Modifier,
 ) {
     Column(
         modifier = modifier
             .fillMaxSize()
             .verticalScroll(rememberScrollState())
-            .background(CoinTheme.colors.surface),
+            .background(CoinTheme.colors.surface)
+            .padding(top = 12.4.dp),
         verticalArrangement = Arrangement.spacedBy(8.dp)
     ) {
-        DetailsBarUi(
-            coinName = coin.name,
-            onBackButtonPressed = component::onBackPressed
-        )
         AsyncImage(
             contentDescription = null,
             model = ImageRequest.Builder(LocalContext.current)
@@ -77,9 +79,8 @@ fun CoinDetailsUiContent(
             modifier = Modifier
                 .size(90.dp)
                 .clip(CircleShape)
-                .align(Alignment.CenterHorizontally)
-                .padding(top = 2.4.dp),
-            placeholder = painterResource(id = R.mipmap.ic_bitcoin_foreground)
+                .align(Alignment.CenterHorizontally),
+            placeholder = painterResource(id = R.mipmap.ic_placeholder_round)
         )
 
         Text(

@@ -3,6 +3,10 @@ package ru.mobileup.template.core.theme.coins_theme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.ReadOnlyComposable
+import ru.mobileup.template.core.theme.CustomColors
+import ru.mobileup.template.core.theme.CustomTypography
+import ru.mobileup.template.core.theme.LocalCustomColors
+import ru.mobileup.template.core.theme.LocalCustomTypography
 
 @Composable
 fun AppTheme(
