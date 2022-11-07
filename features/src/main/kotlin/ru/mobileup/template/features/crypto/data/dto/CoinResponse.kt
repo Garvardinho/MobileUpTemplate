@@ -12,7 +12,7 @@ class CoinResponse(
     @SerialName("name") val name: String,
     @SerialName("image") val imageUrl: String,
     @SerialName("current_price") val currentPrice: Double,
-    @SerialName("price_change_percentage_24h") val priceChangePercentage: String
+    @SerialName("price_change_percentage_24h") val priceChangePercentage: Double
 )
 
 fun CoinResponse.toDomain(): Coin {
