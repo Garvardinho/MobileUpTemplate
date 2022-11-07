@@ -1,4 +1,4 @@
-package ru.mobileup.template.core.theme.coins_theme
+package ru.mobileup.template.core.theme
 
 import androidx.compose.material.Colors
 import androidx.compose.runtime.staticCompositionLocalOf
@@ -38,7 +38,7 @@ val LocalCustomColors = staticCompositionLocalOf<CustomColors?> { null }
 
 val LightAppColors = CustomColors(
     isLight = true,
-    primary = Color(0xFF000000),
+    primary = Color(0xFFFF9F00),
     surface = Color(0xFFFFFFFF),
     arrowColor = Color(0xFF757575),
     secondary = Color(0xFFFF9F00),
@@ -69,13 +69,13 @@ fun CustomColors.toMaterialColors(): Colors {
         primaryVariant = secondary,
         secondary = coin.coinSymbol,
         secondaryVariant = chip.chipSelected,
-        background = chip.chipUnselected,
+        background = text.percentBelowZero,
         surface = surface,
         error = text.percentBelowZero,
         isLight = isLight,
         onPrimary = primary,
         onSecondary = text.chipSelectedText,
-        onBackground = text.chipSelectedText,
+        onBackground = surface,
         onSurface = text.chipUnselectedText,
         onError = text.chipUnselectedText
     )

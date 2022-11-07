@@ -1,4 +1,4 @@
-package ru.mobileup.template.core.theme.coins_theme
+package ru.mobileup.template.core.theme
 
 import androidx.compose.material.Typography
 import androidx.compose.runtime.staticCompositionLocalOf
@@ -27,6 +27,7 @@ data class CoinTypography(
 )
 
 data class TextTypography(
+    val medium: TextStyle,
     val normal: TextStyle,
     val semiBold: TextStyle
 )
@@ -81,6 +82,11 @@ val AppTypography = CustomTypography(
             fontFamily = roboto,
             fontWeight = FontWeight.Normal,
             fontSize = 16.sp
+        ),
+        medium = TextStyle(
+            fontFamily = roboto,
+            fontWeight = FontWeight.Medium,
+            fontSize = 14.sp,
         ),
         semiBold = TextStyle(
             fontFamily = roboto,
