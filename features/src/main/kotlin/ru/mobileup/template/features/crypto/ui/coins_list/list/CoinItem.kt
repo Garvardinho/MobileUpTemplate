@@ -74,7 +74,7 @@ fun CoinItem(
             Text(
                 text = getFormattedPercentage(coin.priceChangePercentage),
                 style = CoinTheme.typography.coin.normal,
-                color = if (coin.priceChangePercentage.toDouble() < 0)
+                color = if (coin.priceChangePercentage < 0)
                     CoinTheme.colors.text.percentBelowZero
                 else
                     CoinTheme.colors.text.percentAboveZero

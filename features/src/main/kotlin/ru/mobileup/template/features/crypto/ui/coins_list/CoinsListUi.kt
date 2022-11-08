@@ -79,7 +79,7 @@ class FakeCoinsListComponent : CoinsListComponent {
                 name = "Bitcoin",
                 imageUrl = "",
                 currentPrice = 28600.74,
-                priceChangePercentage = "4.05"
+                priceChangePercentage = 4.05
             ),
             Coin(
                 id = CoinId("ethereum"),
@@ -87,7 +87,7 @@ class FakeCoinsListComponent : CoinsListComponent {
                 name = "Ethereum",
                 imageUrl = "",
                 currentPrice = 2600.74,
-                priceChangePercentage = "-2.14"
+                priceChangePercentage = -2.14
             ),
             Coin(
                 id = CoinId("binance"),
@@ -95,7 +95,7 @@ class FakeCoinsListComponent : CoinsListComponent {
                 name = "Binance",
                 imageUrl = "",
                 currentPrice = 432.69,
-                priceChangePercentage = "14.05"
+                priceChangePercentage = 14.05
             ),
             Coin(
                 id = CoinId("ethereum2"),
@@ -103,7 +103,7 @@ class FakeCoinsListComponent : CoinsListComponent {
                 name = "Ethereum",
                 imageUrl = "",
                 currentPrice = 2600.74,
-                priceChangePercentage = "-2.14"
+                priceChangePercentage = -2.14
             ),
             Coin(
                 id = CoinId("binance2"),
@@ -111,7 +111,7 @@ class FakeCoinsListComponent : CoinsListComponent {
                 name = "Binance",
                 imageUrl = "",
                 currentPrice = 432.69,
-                priceChangePercentage = "14.05"
+                priceChangePercentage = 14.05
             )
         )
     )
